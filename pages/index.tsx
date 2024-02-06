@@ -67,7 +67,7 @@ export default function Home() {
 
   }
 
-  const handleDelete = (x: number) => {
+  const HandleDelete = (x: number) => {
     const deleteuser = [...user]
     deleteuser.splice(x, 1)
     setUser(deleteuser)
@@ -165,7 +165,7 @@ export default function Home() {
                         onChange={e => {
                           setStatus(e.target.value)
                           // console.log(status);
-                          
+
                         }}
                       >
                         <MenuItem value=''>None</MenuItem>
@@ -211,7 +211,7 @@ export default function Home() {
                         </Grid>
                         <Grid item xs={6}>
                           <div className='flexbt'>
-                            <DeleteIcon className='bt' onClick={() => handleDelete(index)} />
+                            <DeleteIcon className='bt' onClick={() => HandleDelete(index)} />
                           </div>
                         </Grid>
                       </Grid>
