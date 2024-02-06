@@ -59,7 +59,7 @@ const ListUser = ({ user }: Props) => {
       </div>
      
       <div className='CheckboxPDPA'>
-        {!user.Pdpa ? <FormControlLabel control={<Checkbox />} label="Confirm PDPA" disabled /> : <FormControlLabel control={<Checkbox />} label="Confirm PDPA" disabled checked />}
+        {!user?.Pdpa ? <FormControlLabel control={<Checkbox />} label="Confirm PDPA" disabled /> : <FormControlLabel control={<Checkbox />} label="Confirm PDPA" disabled checked />}
       </div>
    
 
