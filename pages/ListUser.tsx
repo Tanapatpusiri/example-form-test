@@ -34,27 +34,27 @@ const ListUser = ({ user }: Props) => {
     
     <div className='grid-container'>
       <div className='grid-itemshow'>
-      <p>Name : {user.Firstname} {user.Lastname}</p>
+      <p>Name : {user?.Firstname || "-"} {user?.Lastname}</p>
      </div>
 
       <div className='grid-itemshow'>
-      <p>Email : {user.Email ? user.Email : '-'} </p>
+      <p>Email : {user?.Email  || "-"} </p>
       </div>
 
       <div className='grid-itemshow'>
-      <p>Gender : {user.Gender} </p>
+      <p>Gender : {user?.Gender || "-"} </p>
       </div>
 
       <div className='grid-itemshow'>
-      <p>Hobby : {user.Hobby.join(' , ') ? user.Hobby.join(' , ') : '-' }</p>
+      <p>Hobby : {user?.Hobby.join(' , ') || "-"}</p>
       </div >
 
       <div className='grid-itemshow'>
-      <p>Status : {user.Status ? user.Status : '-'} </p>
+      <p>Status : {user?.Status || "-"} </p>
       </div>
 
       <div className='grid-itemshow'>
-      <p>Note : {user.Note ? user.Note : '-'} </p>
+      <p>Note : {user?.Note || "-"} </p>
       </div>
       </div>
      
