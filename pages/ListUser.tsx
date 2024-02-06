@@ -9,22 +9,26 @@ interface Props {
 }
 
 const ListUser = ({ user }: Props) => {
-  if (!user || (!user.Firstname && !user.Lastname)) {
-    user.Firstname = '-'
-  }
 
-  const defaultUser = {
-    Firstname: '-',
-    Lastname: '-',
-    Email: '-',
-    Pdpa: false,
-    Gender: '-',
-    Hobby: [],
-    Status: '-',
-    Note: '-'
-  };
+  // const defaultUser = {
+  //   Firstname: '-',
+  //   Lastname: '-',
+  //   Email: '-',
+  //   Pdpa: false,
+  //   Gender: '-',
+  //   Hobby: [],
+  //   Status: '-',
+  //   Note: '-'
+  // };
 
-  user = user || defaultUser;
+
+  // if (!user || (!user.Firstname && !user.Lastname)) {
+  //   user.Firstname = '-'
+  // }
+
+
+
+  // user = user || defaultUser;
  
   return <div>
     
