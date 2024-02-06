@@ -10,28 +10,8 @@ interface Props {
 
 const ListUser = ({ user }: Props) => {
 
-  // const defaultUser = {
-  //   Firstname: '-',
-  //   Lastname: '-',
-  //   Email: '-',
-  //   Pdpa: false,
-  //   Gender: '-',
-  //   Hobby: [],
-  //   Status: '-',
-  //   Note: '-'
-  // };
-
-
-  // if (!user || (!user.Firstname && !user.Lastname)) {
-  //   user.Firstname = '-'
-  // }
-
-
-
-  // user = user || defaultUser;
  
-  return <div>
-    
+  return <div> 
     <div className='grid-container'>
       <div className='grid-itemshow'>
       <p>Name : {user?.Firstname || "-"} {user?.Lastname}</p>
@@ -61,11 +41,6 @@ const ListUser = ({ user }: Props) => {
       <div className='CheckboxPDPA'>
         {!user?.Pdpa ? <FormControlLabel control={<Checkbox />} label="Confirm PDPA" disabled /> : <FormControlLabel control={<Checkbox />} label="Confirm PDPA" disabled checked />}
       </div>
-   
-
-   
-     
- 
   </div>
 }
 
