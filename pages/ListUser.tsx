@@ -9,7 +9,7 @@ interface Props {
 }
 
 const ListUser = ({ user }: Props) => {
-  if (!user.Firstname && !user.Lastname) {
+  if (!user || (!user.Firstname && !user.Lastname)) {
     user.Firstname = '-'
   }
  
