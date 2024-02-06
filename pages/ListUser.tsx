@@ -1,5 +1,5 @@
 import React, { use, useState } from 'react'
-import { Alluser } from './interface'
+import { Alluser } from './Web'
 import { FormControlLabel } from '@mui/material';
 import { Checkbox } from '@mui/material';
 

@@ -14,9 +14,21 @@ import { MenuItem } from "@mui/material";
 import { InputLabel } from "@mui/material";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
-import { Alluser } from "./interface";
+
 import ListUser from "./ListUser";
 import DeleteIcon from "@mui/icons-material/Delete";
+
+
+export interface Alluser {
+  "Firstname":string
+  "Lastname":string
+  "Email":string
+  "Pdpa":boolean
+  "Gender":string
+  "Hobby":string[]
+  "Status":string|null
+  "Note":string
+}
 
 export default function Web() {
   const options = ["Single", "Married", "Divorce"];
