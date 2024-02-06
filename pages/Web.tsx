@@ -18,7 +18,7 @@ import { Alluser } from "./interface";
 import ListUser from "./ListUser";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-export default function Home() {
+export default function Web() {
   const options = ["Single", "Married", "Divorce"];
   const [firstname, setFirstName] = useState<string>("");
   const [lasttname, setLastName] = useState<string>("");
@@ -78,7 +78,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <>
         <div className="navbar">
           <p className="navtext">User Profile Management System</p>
         </div>
@@ -303,7 +303,7 @@ export default function Home() {
             </div>
           </div>
         </form>
-      </main>
+      </>
     </>
   );
 }
