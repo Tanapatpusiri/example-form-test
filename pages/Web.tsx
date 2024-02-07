@@ -30,7 +30,6 @@ export interface Alluser {
 }
 
 export default function Web() {
-  const options = ["Single", "Married", "Divorce"];
   const [firstname, setFirstName] = useState<string>("");
   const [lasttname, setLastName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -64,7 +63,6 @@ export default function Web() {
     setHobby([]);
     setStatus("");
     setNote("");
-    console.log(status);
   };
   const Hobbychange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const index = hobby.indexOf(event.target.value);
