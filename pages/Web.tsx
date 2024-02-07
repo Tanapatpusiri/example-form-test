@@ -1,6 +1,6 @@
 import Head from "next/head";
 import * as React from "react";
-import { FC, useState, ChangeEvent } from "react";
+import { useState } from "react";
 import { FormGroup, Grid } from "@mui/material";
 import { TextField } from "@mui/material";
 import { FormControlLabel } from "@mui/material";
