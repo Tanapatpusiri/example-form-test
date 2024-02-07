@@ -2,7 +2,7 @@ import React, { use, useState } from 'react'
 import { Alluser } from './Web'
 import { FormControlLabel } from '@mui/material';
 import { Checkbox } from '@mui/material';
-
+import { Box } from "@mui/material";
 
 interface Props {
   user: Alluser
@@ -12,31 +12,36 @@ const ListUser = ({ user }: Props) => {
 
  
   return <div> 
-    <div className='grid-container'>
-      <div className='grid-itemshow'>
+    <Box 
+    sx={{
+      display:'grid',
+      gridTemplateColumns:"auto auto"
+    }}
+    >
+      <Box className='grid-itemshow'>
       <p>Name : {user?.Firstname || "-"} {user?.Lastname}</p>
-     </div>
+     </Box>
 
-      <div className='grid-itemshow'>
+      <Box className='grid-itemshow'>
       <p>Email : {user?.Email  || "-"} </p>
-      </div>
+      </Box>
 
-      <div className='grid-itemshow'>
+      <Box className='grid-itemshow'>
       <p>Gender : {user?.Gender || "-"} </p>
-      </div>
+      </Box>
 
-      <div className='grid-itemshow'>
+      <Box className='grid-itemshow'>
       <p>Hobby : {user?.Hobby.join(' , ') || "-"}</p>
-      </div >
+      </Box >
 
-      <div className='grid-itemshow'>
+      <Box className='grid-itemshow'>
       <p>Status : {user?.Status || "-"} </p>
-      </div>
+      </Box>
 
-      <div className='grid-itemshow'>
+      <Box className='grid-itemshow'>
       <p>Note : {user?.Note || "-"} </p>
-      </div>
-      </div>
+      </Box>
+      </Box>
      
       <div className='CheckboxPDPA'>
         {!user?.Pdpa ? <FormControlLabel control={<Checkbox />} label="Confirm PDPA" disabled /> : <FormControlLabel control={<Checkbox />} label="Confirm PDPA" disabled checked />}
