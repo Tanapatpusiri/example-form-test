@@ -1,6 +1,6 @@
 import React from "react";
 import { UserDetails } from "./Web";
-import { FormControlLabel, Checkbox, Box } from "@mui/material";
+import { FormControlLabel, Checkbox, Box, Typography } from "@mui/material";
 
 interface Props {
   AllUser: UserDetails;
@@ -8,7 +8,7 @@ interface Props {
 
 const ListUser = ({ AllUser }: Props) => {
   return (
-    <div>
+    <Box>
       <Box
         sx={{
           display: "grid",
@@ -16,33 +16,79 @@ const ListUser = ({ AllUser }: Props) => {
         }}
       >
         <Box className="grid-itemshow">
-          <p>
+          <Typography
+            variant="subtitle1"
+            sx={{
+              paddingTop: 1,
+              paddingBottom: 1,
+            }}
+          >
             Name : {AllUser?.FirstName || "-"} {AllUser?.LastName}
-          </p>
+          </Typography>
         </Box>
 
         <Box className="grid-itemshow">
-          <p>Email : {AllUser?.Email || "-"} </p>
+          <Typography
+            variant="subtitle1"
+            sx={{
+              paddingTop: 1,
+              paddingBottom: 1,
+            }}
+          >
+            Email : {AllUser?.Email || "-"}{" "}
+          </Typography>
         </Box>
 
         <Box className="grid-itemshow">
-          <p>Gender : {AllUser?.Gender || "-"} </p>
+          <Typography
+            variant="subtitle1"
+            sx={{
+              paddingTop: 1,
+              paddingBottom: 1,
+            }}
+          >
+            Gender : {AllUser?.Gender || "-"}{" "}
+          </Typography>
         </Box>
 
         <Box className="grid-itemshow">
-          <p>Hobby : {AllUser?.Hobby.join(" , ") || "-"}</p>
+          <Typography
+            variant="subtitle1"
+            sx={{
+              paddingTop: 1,
+              paddingBottom: 1,
+            }}
+          >
+            Hobby : {AllUser?.Hobby.join(" , ") || "-"}
+          </Typography>
         </Box>
 
         <Box className="grid-itemshow">
-          <p>Status : {AllUser?.Status || "-"} </p>
+          <Typography
+            variant="subtitle1"
+            sx={{
+              paddingTop: 1,
+              paddingBottom: 1,
+            }}
+          >
+            Status : {AllUser?.Status || "-"}{" "}
+          </Typography>
         </Box>
 
         <Box className="grid-itemshow">
-          <p>Note : {AllUser?.Note || "-"} </p>
+          <Typography
+            variant="subtitle1"
+            sx={{
+              paddingTop: 1,
+              paddingBottom: 1,
+            }}
+          >
+            Note : {AllUser?.Note || "-"}{" "}
+          </Typography>
         </Box>
       </Box>
 
-      <div className="CheckboxPDPA">
+      <Box className="CheckboxPDPA">
         {!AllUser?.Pdpa ? (
           <FormControlLabel
             control={<Checkbox />}
@@ -57,8 +103,8 @@ const ListUser = ({ AllUser }: Props) => {
             checked
           />
         )}
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 
