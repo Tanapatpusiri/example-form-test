@@ -1,47 +1,65 @@
-import React, { use, useState } from 'react'
-import { Alluser } from './Web'
-import { FormControlLabel } from '@mui/material';
-import { Checkbox } from '@mui/material';
-
+import React from "react";
+import { UserDetails } from "./Web";
+import { FormControlLabel, Checkbox, Box } from "@mui/material";
 
 interface Props {
-  user: Alluser
+  AllUser: UserDetails;
 }
 
-const ListUser = ({ user }: Props) => {
+const ListUser = ({ AllUser }: Props) => {
+  return (
+    <div>
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "auto auto",
+        }}
+      >
+        <Box className="grid-itemshow">
+          <p>
+            Name : {AllUser?.FirstName || "-"} {AllUser?.LastName}
+          </p>
+        </Box>
 
- 
-  return <div> 
-    <div className='grid-container'>
-      <div className='grid-itemshow'>
-      <p>Name : {user?.Firstname || "-"} {user?.Lastname}</p>
-     </div>
+        <Box className="grid-itemshow">
+          <p>Email : {AllUser?.Email || "-"} </p>
+        </Box>
 
-      <div className='grid-itemshow'>
-      <p>Email : {user?.Email  || "-"} </p>
+        <Box className="grid-itemshow">
+          <p>Gender : {AllUser?.Gender || "-"} </p>
+        </Box>
+
+        <Box className="grid-itemshow">
+          <p>Hobby : {AllUser?.Hobby.join(" , ") || "-"}</p>
+        </Box>
+
+        <Box className="grid-itemshow">
+          <p>Status : {AllUser?.Status || "-"} </p>
+        </Box>
+
+        <Box className="grid-itemshow">
+          <p>Note : {AllUser?.Note || "-"} </p>
+        </Box>
+      </Box>
+
+      <div className="CheckboxPDPA">
+        {!AllUser?.Pdpa ? (
+          <FormControlLabel
+            control={<Checkbox />}
+            label="Confirm PDPA"
+            disabled
+          />
+        ) : (
+          <FormControlLabel
+            control={<Checkbox />}
+            label="Confirm PDPA"
+            disabled
+            checked
+          />
+        )}
       </div>
+    </div>
+  );
+};
 
-      <div className='grid-itemshow'>
-      <p>Gender : {user?.Gender || "-"} </p>
-      </div>
-
-      <div className='grid-itemshow'>
-      <p>Hobby : {user?.Hobby.join(' , ') || "-"}</p>
-      </div >
-
-      <div className='grid-itemshow'>
-      <p>Status : {user?.Status || "-"} </p>
-      </div>
-
-      <div className='grid-itemshow'>
-      <p>Note : {user?.Note || "-"} </p>
-      </div>
-      </div>
-     
-      <div className='CheckboxPDPA'>
-        {!user?.Pdpa ? <FormControlLabel control={<Checkbox />} label="Confirm PDPA" disabled /> : <FormControlLabel control={<Checkbox />} label="Confirm PDPA" disabled checked />}
-      </div>
-  </div>
-}
-
-export default ListUser
+export default ListUser;
