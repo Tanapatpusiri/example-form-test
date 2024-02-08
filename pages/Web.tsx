@@ -1,20 +1,22 @@
-import Head from "next/head";
-import * as React from "react";
 import { useState } from "react";
-import { FormGroup, Grid } from "@mui/material";
-import { TextField } from "@mui/material";
-import { FormControlLabel } from "@mui/material";
-import { Checkbox } from "@mui/material";
-import { FormLabel } from "@mui/material";
-import { RadioGroup } from "@mui/material";
-import { FormControl } from "@mui/material";
-import { Radio } from "@mui/material";
-import { Select } from "@mui/material";
-import { MenuItem } from "@mui/material";
-import { InputLabel } from "@mui/material";
-import { Box } from "@mui/material";
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
+import React from "react";
+import {
+  FormGroup,
+  Grid,
+  TextField,
+  FormControlLabel,
+  Checkbox,
+  FormLabel,
+  RadioGroup,
+  FormControl,
+  Radio,
+  Select,
+  MenuItem,
+  InputLabel,
+  Box,
+  Stack,
+  Button,
+} from "@mui/material";
 import ListUser from "./ListUser";
 import DeleteIcon from "@mui/icons-material/Delete";
 
@@ -441,7 +443,7 @@ export default function Web() {
                                 },
                                 borderRadius: 5,
                                 transition: 0.5,
-                                cursor:'pointer'
+                                cursor: "pointer",
                               }}
                               onClick={() => HandleDelete(index)}
                             />
