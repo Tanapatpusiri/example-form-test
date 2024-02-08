@@ -20,9 +20,9 @@ import {
 import ListUser from "./ListUser";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-export interface Alluser {
-  Firstname: string;
-  Lastname: string;
+export interface UserDetails {
+  FirstName: string;
+  LastName: string;
   Email: string;
   Pdpa: boolean;
   Gender: string;
@@ -40,12 +40,12 @@ export default function Web() {
   const [hobby, setHobby] = useState<string[]>([]);
   const [status, setStatus] = useState<string | null>("");
   const [note, setNote] = useState<string>("");
-  const [user, setUser] = useState<Alluser[]>([]);
+  const [user, setUser] = useState<UserDetails[]>([]);
 
   const adduser = (): void => {
-    const newUser = {
-      Firstname: firstname,
-      Lastname: lasttname,
+    const NewUser = {
+      FirstName: firstname,
+      LastName: lasttname,
       Email: email,
       Pdpa: pdpa,
       Gender: gender,
@@ -53,7 +53,7 @@ export default function Web() {
       Note: note,
       Status: status,
     };
-    setUser([...user, newUser]);
+    setUser([...user, NewUser]);
   };
 
   const reset = (): void => {
@@ -392,7 +392,7 @@ export default function Web() {
                   marginTop: { lg: 14, xs: 2, md: 5 },
                 }}
               >
-                {user.map((Users: Alluser, index) => (
+                {user.map((Users: UserDetails, index) => (
                   <Box
                     key={index}
                     className="userdetail"
@@ -451,7 +451,7 @@ export default function Web() {
                         </Grid>
                       </Grid>
                     </Box>
-                    <ListUser key={index} user={Users} />
+                    <ListUser key={index} AllUser={Users} />
                   </Box>
                 ))}
               </Box>
