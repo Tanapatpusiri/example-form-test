@@ -32,10 +32,10 @@ export interface UserDetails {
 }
 
 export default function Web() {
-  const [firstname, setFirstName] = useState<string>("");
-  const [lasttname, setLastName] = useState<string>("");
+  const [fname, setFname] = useState<string>("");
+  const [lname, setLname] = useState<string>("");
   const [email, setEmail] = useState<string>("");
-  const [pdpa, setPDPA] = useState<boolean>(false);
+  const [pdpa, setPdpa] = useState<boolean>(false);
   const [gender, setGender] = useState<string>("Male");
   const [hobby, setHobby] = useState<string[]>([]);
   const [status, setStatus] = useState<string | null>("");
@@ -44,8 +44,8 @@ export default function Web() {
 
   const adduser = (): void => {
     const NewUser = {
-      FirstName: firstname,
-      LastName: lasttname,
+      FirstName: fname,
+      LastName: lname,
       Email: email,
       Pdpa: pdpa,
       Gender: gender,
@@ -57,16 +57,16 @@ export default function Web() {
   };
 
   const reset = (): void => {
-    setFirstName("");
-    setLastName("");
+    setFname("");
+    setLname("");
     setEmail("");
-    setPDPA(false);
+    setPdpa(false);
     setGender("Male");
     setHobby([]);
     setStatus("");
     setNote("");
   };
-  const Hobbychange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeHobby = (event: React.ChangeEvent<HTMLInputElement>) => {
     const index = hobby.indexOf(event.target.value);
     if (index === -1) {
       setHobby([...hobby, event.target.value]);
@@ -75,7 +75,7 @@ export default function Web() {
     }
   };
 
-  const HandleDelete = (x: number) => {
+  const handleDeleteUser = (x: number) => {
     const deleteuser = [...user];
     deleteuser.splice(x, 1);
     setUser(deleteuser);
@@ -157,11 +157,11 @@ export default function Web() {
                         id="firstname"
                         label="First Name"
                         onChange={(e) => {
-                          setFirstName(e.target.value);
+                          setFname(e.target.value);
                         }}
                         variant="outlined"
                         sx={{ width: "100%" }}
-                        value={firstname}
+                        value={fname}
                       />
                     </Grid>
                     <Grid item xs={6}>
@@ -169,11 +169,11 @@ export default function Web() {
                         id="lastname"
                         label="Last Name"
                         onChange={(e) => {
-                          setLastName(e.target.value);
+                          setLname(e.target.value);
                         }}
                         variant="outlined"
                         sx={{ width: "100%" }}
-                        value={lasttname}
+                        value={lname}
                       />
                     </Grid>
                   </Grid>
@@ -213,7 +213,7 @@ export default function Web() {
                     <FormControlLabel
                       control={
                         <Checkbox
-                          onChange={(e) => setPDPA(e.target.checked)}
+                          onChange={(e) => setPdpa(e.target.checked)}
                           checked={pdpa}
                         />
                       }
@@ -275,7 +275,7 @@ export default function Web() {
                           <Checkbox
                             value="Game"
                             checked={hobby.includes("Game")}
-                            onChange={Hobbychange}
+                            onChange={handleChangeHobby}
                           />
                         }
                         label="Game"
@@ -285,7 +285,7 @@ export default function Web() {
                           <Checkbox
                             value="Music"
                             checked={hobby.includes("Music")}
-                            onChange={Hobbychange}
+                            onChange={handleChangeHobby}
                           />
                         }
                         label="Music"
@@ -295,7 +295,7 @@ export default function Web() {
                           <Checkbox
                             value="Craff"
                             checked={hobby.includes("Craff")}
-                            onChange={Hobbychange}
+                            onChange={handleChangeHobby}
                           />
                         }
                         label="Craff"
@@ -305,7 +305,7 @@ export default function Web() {
                           <Checkbox
                             value="Reading"
                             checked={hobby.includes("Reading")}
-                            onChange={Hobbychange}
+                            onChange={handleChangeHobby}
                           />
                         }
                         label="Reading"
@@ -445,7 +445,7 @@ export default function Web() {
                                 transition: 0.5,
                                 cursor: "pointer",
                               }}
-                              onClick={() => HandleDelete(index)}
+                              onClick={() => handleDeleteUser(index)}
                             />
                           </Box>
                         </Grid>
