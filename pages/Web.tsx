@@ -32,47 +32,43 @@ export interface UserDetails {
 }
 
 export default function Web() {
-  const [fname, setFname] = useState<string>("");
-  const [lname, setLname] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [pdpa, setPdpa] = useState<boolean>(false);
-  const [gender, setGender] = useState<string>("Male");
-  const [hobby, setHobby] = useState<string[]>([]);
-  const [status, setStatus] = useState<string | null>("");
-  const [note, setNote] = useState<string>("");
   const [user, setUser] = useState<UserDetails[]>([]);
+  const [userdetails, setUserdetails] = useState({
+    fname: "",
+    lname: "",
+    email: "",
+    pdpa: false,
+    gender: "Male",
+    hobby: [],
+    note: "",
+    status: "",
+  });
 
   const adduser = (): void => {
     const NewUser = {
-      FirstName: fname,
-      LastName: lname,
-      Email: email,
-      Pdpa: pdpa,
-      Gender: gender,
-      Hobby: hobby,
-      Note: note,
-      Status: status,
+      FirstName: userdetails.fname,
+      LastName: userdetails.lname,
+      Email: userdetails.email,
+      Pdpa: userdetails.pdpa,
+      Gender: userdetails.gender,
+      Hobby: userdetails.hobby,
+      Note: userdetails.note,
+      Status: userdetails.status,
     };
     setUser([...user, NewUser]);
   };
 
   const reset = (): void => {
-    setFname("");
-    setLname("");
-    setEmail("");
-    setPdpa(false);
-    setGender("Male");
-    setHobby([]);
-    setStatus("");
-    setNote("");
-  };
-  const handleChangeHobby = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const index = hobby.indexOf(event.target.value);
-    if (index === -1) {
-      setHobby([...hobby, event.target.value]);
-    } else {
-      setHobby(hobby.filter((hobby) => hobby !== event.target.value));
-    }
+    setUserdetails({
+      fname: "",
+      lname: "",
+      email: "",
+      pdpa: false,
+      gender: "Male",
+      hobby: [],
+      note: "",
+      status: "",
+    });
   };
 
   const handleDeleteUser = (x: number) => {
@@ -156,24 +152,30 @@ export default function Web() {
                       <TextField
                         id="firstname"
                         label="First Name"
+                        value={userdetails.fname}
                         onChange={(e) => {
-                          setFname(e.target.value);
+                          setUserdetails({
+                            ...userdetails,
+                            fname: e.target.value,
+                          });
                         }}
                         variant="outlined"
                         sx={{ width: "100%" }}
-                        value={fname}
                       />
                     </Grid>
                     <Grid item xs={6}>
                       <TextField
                         id="lastname"
                         label="Last Name"
+                        value={userdetails.lname}
                         onChange={(e) => {
-                          setLname(e.target.value);
+                          setUserdetails({
+                            ...userdetails,
+                            lname: e.target.value,
+                          });
                         }}
                         variant="outlined"
                         sx={{ width: "100%" }}
-                        value={lname}
                       />
                     </Grid>
                   </Grid>
@@ -194,12 +196,15 @@ export default function Web() {
                     <TextField
                       id="email"
                       label="Email"
+                      value={userdetails.email}
                       onChange={(e) => {
-                        setEmail(e.target.value);
+                        setUserdetails({
+                          ...userdetails,
+                          email: e.target.value,
+                        });
                       }}
                       variant="outlined"
                       sx={{ width: "100%" }}
-                      value={email}
                     />
                   </Box>
 
@@ -213,8 +218,13 @@ export default function Web() {
                     <FormControlLabel
                       control={
                         <Checkbox
-                          onChange={(e) => setPdpa(e.target.checked)}
-                          checked={pdpa}
+                          onChange={(e) => {
+                            setUserdetails({
+                              ...userdetails,
+                              pdpa: e.target.checked,
+                            });
+                          }}
+                          checked={userdetails.pdpa}
                         />
                       }
                       label="Confirm PDPA"
@@ -236,8 +246,13 @@ export default function Web() {
                         row
                         aria-labelledby="demo-row-radio-buttons-group-label"
                         name="row-radio-buttons-group"
-                        value={gender}
-                        onChange={(e) => setGender(e.target.value)}
+                        value={userdetails.gender}
+                        onChange={(e) => {
+                          setUserdetails({
+                            ...userdetails,
+                            gender: e.target.value,
+                          });
+                        }}
                       >
                         <FormControlLabel
                           value="Male"
@@ -274,8 +289,17 @@ export default function Web() {
                         control={
                           <Checkbox
                             value="Game"
-                            checked={hobby.includes("Game")}
-                            onChange={handleChangeHobby}
+                            onChange={(
+                              event: React.ChangeEvent<HTMLInputElement>
+                            ) => {
+                              setUserdetails({
+                                ...userdetails,
+                                hobby: [
+                                  ...userdetails.hobby,
+                                  event.target.value as never,
+                                ],
+                              });
+                            }}
                           />
                         }
                         label="Game"
@@ -284,8 +308,17 @@ export default function Web() {
                         control={
                           <Checkbox
                             value="Music"
-                            checked={hobby.includes("Music")}
-                            onChange={handleChangeHobby}
+                            onChange={(
+                              event: React.ChangeEvent<HTMLInputElement>
+                            ) => {
+                              setUserdetails({
+                                ...userdetails,
+                                hobby: [
+                                  ...userdetails.hobby,
+                                  event.target.value as never,
+                                ],
+                              });
+                            }}
                           />
                         }
                         label="Music"
@@ -294,8 +327,17 @@ export default function Web() {
                         control={
                           <Checkbox
                             value="Craff"
-                            checked={hobby.includes("Craff")}
-                            onChange={handleChangeHobby}
+                            onChange={(
+                              event: React.ChangeEvent<HTMLInputElement>
+                            ) => {
+                              setUserdetails({
+                                ...userdetails,
+                                hobby: [
+                                  ...userdetails.hobby,
+                                  event.target.value as never,
+                                ],
+                              });
+                            }}
                           />
                         }
                         label="Craff"
@@ -304,8 +346,17 @@ export default function Web() {
                         control={
                           <Checkbox
                             value="Reading"
-                            checked={hobby.includes("Reading")}
-                            onChange={handleChangeHobby}
+                            onChange={(
+                              event: React.ChangeEvent<HTMLInputElement>
+                            ) => {
+                              setUserdetails({
+                                ...userdetails,
+                                hobby: [
+                                  ...userdetails.hobby,
+                                  event.target.value as never,
+                                ],
+                              });
+                            }}
                           />
                         }
                         label="Reading"
@@ -327,10 +378,13 @@ export default function Web() {
                       <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
-                        value={status}
+                        value={userdetails.status}
                         label="Status"
                         onChange={(e) => {
-                          setStatus(e.target.value);
+                          setUserdetails({
+                            ...userdetails,
+                            status: e.target.value,
+                          });
                         }}
                       >
                         <MenuItem value="">None</MenuItem>
@@ -350,13 +404,16 @@ export default function Web() {
                   >
                     <TextField
                       id="outlined-basic"
+                      value={userdetails.note}
                       onChange={(e) => {
-                        setNote(e.target.value);
+                        setUserdetails({
+                          ...userdetails,
+                          note: e.target.value,
+                        });
                       }}
                       label="Note"
                       variant="outlined"
                       sx={{ width: "100%" }}
-                      value={note}
                     />
                   </Box>
 
