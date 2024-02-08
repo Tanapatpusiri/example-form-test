@@ -1,47 +1,111 @@
-import React, { use, useState } from 'react'
-import { Alluser } from './Web'
-import { FormControlLabel } from '@mui/material';
-import { Checkbox } from '@mui/material';
-
+import React from "react";
+import { UserDetails } from "./Web";
+import { FormControlLabel, Checkbox, Box, Typography } from "@mui/material";
 
 interface Props {
-  user: Alluser
+  AllUser: UserDetails;
 }
 
-const ListUser = ({ user }: Props) => {
+const ListUser = ({ AllUser }: Props) => {
+  return (
+    <Box>
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "auto auto",
+        }}
+      >
+        <Box className="grid-itemshow">
+          <Typography
+            variant="subtitle1"
+            sx={{
+              paddingTop: 1,
+              paddingBottom: 1,
+            }}
+          >
+            Name : {AllUser?.FirstName || "-"} {AllUser?.LastName}
+          </Typography>
+        </Box>
 
- 
-  return <div> 
-    <div className='grid-container'>
-      <div className='grid-itemshow'>
-      <p>Name : {user?.Firstname || "-"} {user?.Lastname}</p>
-     </div>
+        <Box className="grid-itemshow">
+          <Typography
+            variant="subtitle1"
+            sx={{
+              paddingTop: 1,
+              paddingBottom: 1,
+            }}
+          >
+            Email : {AllUser?.Email || "-"}{" "}
+          </Typography>
+        </Box>
 
-      <div className='grid-itemshow'>
-      <p>Email : {user?.Email  || "-"} </p>
-      </div>
+        <Box className="grid-itemshow">
+          <Typography
+            variant="subtitle1"
+            sx={{
+              paddingTop: 1,
+              paddingBottom: 1,
+            }}
+          >
+            Gender : {AllUser?.Gender || "-"}{" "}
+          </Typography>
+        </Box>
 
-      <div className='grid-itemshow'>
-      <p>Gender : {user?.Gender || "-"} </p>
-      </div>
+        <Box className="grid-itemshow">
+          <Typography
+            variant="subtitle1"
+            sx={{
+              paddingTop: 1,
+              paddingBottom: 1,
+            }}
+          >
+            Hobby : {AllUser?.Hobby.join(" , ") || "-"}
+          </Typography>
+        </Box>
 
-      <div className='grid-itemshow'>
-      <p>Hobby : {user?.Hobby.join(' , ') || "-"}</p>
-      </div >
+        <Box className="grid-itemshow">
+          <Typography
+            variant="subtitle1"
+            sx={{
+              paddingTop: 1,
+              paddingBottom: 1,
+            }}
+          >
+            Status : {AllUser?.Status || "-"}{" "}
+          </Typography>
+        </Box>
 
-      <div className='grid-itemshow'>
-      <p>Status : {user?.Status || "-"} </p>
-      </div>
+        <Box className="grid-itemshow">
+          <Typography
+            variant="subtitle1"
+            sx={{
+              paddingTop: 1,
+              paddingBottom: 1,
+            }}
+          >
+            Note : {AllUser?.Note || "-"}{" "}
+          </Typography>
+        </Box>
+      </Box>
 
-      <div className='grid-itemshow'>
-      <p>Note : {user?.Note || "-"} </p>
-      </div>
-      </div>
-     
-      <div className='CheckboxPDPA'>
-        {!user?.Pdpa ? <FormControlLabel control={<Checkbox />} label="Confirm PDPA" disabled /> : <FormControlLabel control={<Checkbox />} label="Confirm PDPA" disabled checked />}
-      </div>
-  </div>
-}
+      <Box className="CheckboxPDPA">
+        {!AllUser?.Pdpa ? (
+          <FormControlLabel
+            control={<Checkbox />}
+            label="Confirm PDPA"
+            disabled
+          />
+        ) : (
+          <FormControlLabel
+            control={<Checkbox />}
+            label="Confirm PDPA"
+            disabled
+            checked
+          />
+        )}
+      </Box>
+    </Box>
+  );
+};
 
-export default ListUser
+export default ListUser;
